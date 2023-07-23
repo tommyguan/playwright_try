@@ -9,7 +9,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                echo "Database engine is ${PATH}"
+                echo "PATH is ${PATH}"
+                System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "")
                 sh '/opt/homebrew/bin/npx playwright test'
                 archiveArtifacts artifacts: '**/playwright-report/*.html', fingerprint: true
             }
