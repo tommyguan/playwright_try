@@ -10,7 +10,6 @@ pipeline {
             steps {
                 echo 'Building..'
                 echo "PATH is ${PATH}"
-                System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "")
                 sh '/opt/homebrew/bin/npx playwright test'
                 archiveArtifacts artifacts: '**/playwright-report/*.html', fingerprint: true
             }
