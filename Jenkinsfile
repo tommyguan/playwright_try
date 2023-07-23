@@ -5,6 +5,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
+                sh '/opt/homebrew/bin/npx playwright test'
+                archiveArtifacts artifacts: '**/playwright-report/*.html', fingerprint: true
             }
         }
         stage('Test') {
