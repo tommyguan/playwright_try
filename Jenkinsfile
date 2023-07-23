@@ -2,8 +2,7 @@ pipeline {
     agent any
 
     environment {
-        PATH = ${PATH}+':/opt/homebrew/bin'
-        DB_ENGINE    = 'sqlite'
+        PATH = "/opt/homebrew/bin:${env.PATH}"
     }
 
     stages {
