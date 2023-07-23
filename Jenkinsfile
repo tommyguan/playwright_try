@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                sh 'brew install node'
+                echo "Database engine is ${PATH}"
                 sh '/opt/homebrew/bin/npx playwright test'
                 archiveArtifacts artifacts: '**/playwright-report/*.html', fingerprint: true
             }
