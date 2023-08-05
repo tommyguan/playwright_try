@@ -25,6 +25,9 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
+                withCredentials([usernamePassword(credentialsId: 'test_credential', usernameVariable: 'fooUser', passwordVariable: 'fooPassword')]) {
+                echo "user is ${fooUser}"
+}
             }
         }
         stage('Deploy') {
